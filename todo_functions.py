@@ -20,4 +20,12 @@ def mark_todo(file_name):
 
 def view_todo(file_name):
     print("View TODO.")
+    with open(file_name, "r") as f: 
+        reader = csv.reader(f)
+        reader.__next__()
+        for row in reader: 
+            if (row[1] == "True"):
+                print(f"Todo {row[0]} is completed")
+            else: 
+                print(f"Todo {row[0]} is not completed")
 
